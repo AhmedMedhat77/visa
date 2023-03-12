@@ -1,0 +1,28 @@
+@import "../../scss/abstracts/mixin";
+.form-visa {
+  background-color: var(--color-white);
+  @include media-prop(height, 100%, auto);
+
+  @include media-prop(
+    padding,
+    20rem 33rem 0rem 45rem,
+    8rem var(--paddding-m) var(--paddding-l) var(--paddding-m)
+  );
+  &__line {
+    margin-top: var(--margin-s);
+  }
+  &__date {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &__item {
+      margin-left: var(--margin-xs1);
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  &__action {
+    margin-top: var(--margin-m);
+  }
+}

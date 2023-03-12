@@ -1,0 +1,27 @@
+@import "../../scss/abstracts/mixin";
+.login {
+  display: flex;
+  flex-direction: row;
+  @include media-prop(flex-direction, row, column);
+  &__header {
+    position: relative;
+    background-color: var(--color-black-2);
+    height: 200px;
+    @include media-prop(height, 100vh, 200px);
+    &__front {
+      position: relative;
+      @include media-prop(top, 15rem, 12rem);
+      @include media-prop(left, 9rem, calc(-2% + var(--paddding-m)));
+
+      width: 26.1rem;
+    }
+    &__back {
+      position: absolute;
+      @include media-prop(inset, 36rem 15rem, 3rem 8rem);
+      width: 26.1rem;
+    }
+  }
+  &__content {
+    width: 100%;
+  }
+}

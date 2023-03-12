@@ -1,0 +1,16 @@
+.button {
+  width: 100%;
+  &--dark {
+    background-color: var(--color-black-2);
+    color: var(--color-white);
+  }
+  &--l {
+    padding: var(--paddding-s) var(--paddding-m);
+  }
+  &--t-center {
+    text-align: center;
+  }
+  &--rounded-xs {
+    border-radius: var(--border-radius-xs);
+  }
+}
