@@ -12,9 +12,10 @@ function FormVisa(props) {
 
   const register = () => {
     // validation on confirm
-    props.onDataChange(formState);
-    console.log(formState);
   };
+  React.useEffect(() => {
+    props.onDataChange(formState);
+  }, [formState]);
 
   const onCardNameChange = handleChange((value) => {
     if (value === undefined) {
@@ -65,16 +66,15 @@ function FormVisa(props) {
           placeholder={"e.g. 123455 67889 19823"}
           label={"CARD NUMBER"}
           name="cardNumber"
-          value={formState["cardNumber"] || ""}
+          value={formState?.cardNumber ?? ""}
           onChange={onCardNumberChange}
           error={valiations.cardNumber}
           maxLength="16"
         />
-        {isNaN(Number(formState.cardNumber)) &&
-        formState.cardNumber !== undefined ? (
-          <FormErrorText errorMessage="Wrong Format, Numbers only" />
-        ) : (
+        {/(\d+|\s){16}/gm.test(formState?.cardNumber) ? (
           ""
+        ) : (
+          <FormErrorText errorMessage="Wrong Format, Numbers only" />
         )}
       </div>
       <div className={classes("form-visa__line", "form-visa__date")}>
