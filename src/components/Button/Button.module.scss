@@ -1,5 +1,6 @@
 .button {
   width: 100%;
+  cursor: pointer;
   &--dark {
     background-color: var(--color-black-2);
     color: var(--color-white);

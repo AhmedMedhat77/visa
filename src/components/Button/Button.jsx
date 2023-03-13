@@ -11,7 +11,7 @@ function Button(props) {
         "button--dark",
         "button--l",
         "button--t-center",
-        'button--rounded-xs'
+        "button--rounded-xs"
       )}
       onClick={props.onClick}
     >

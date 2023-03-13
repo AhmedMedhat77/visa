@@ -7,6 +7,9 @@
     background-color: var(--color-white);
   }
   &__inpt {
+    &--error{
+      border: 1px solid var(--color-secondary);
+    }
     width: 100%;
     outline: transparent;
     margin-top: var(--margin-xs1);

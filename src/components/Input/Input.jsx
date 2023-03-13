@@ -4,7 +4,7 @@ import styles from "./input.module.scss";
 
 function Input(props) {
   const classes = useStyles(styles);
-  console.log(styles);
+
   return (
     <div className={classes("input")} style={props.containerStyle}>
       <label className={classes("input__label", "typo--bold")}>
@@ -13,8 +13,14 @@ function Input(props) {
       <input
         onChange={props.onChange}
         type="text"
-        placeholder={props.placeholder}
-        className={classes("input__inpt")}
+        maxLength={props?.maxLength}
+        placeholder={props?.placeholder}
+        className={classes(
+          "input__inpt",
+          props.error ? "input__inpt--error" : ""
+        )}
+        name={props.name}
+        value={props.value}
       />
     </div>
   );
