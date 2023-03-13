@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../components/Button/Button";
+import FormErrorText from "../../components/FormErrorText/FormErrorText";
 import Input from "../../components/Input/Input";
 import useForm from "../../hooks/useForm";
 import useStyles from "../../hooks/useStyles";
@@ -28,6 +29,24 @@ function FormVisa(props) {
     }
     return value.length !== 16;
   });
+  const onExpDateChange = handleChange((value) => {
+    if (value?.length === undefined) {
+      return;
+    }
+    return value.length !== 2;
+  });
+  const onYearChange = handleChange((value) => {
+    if (value?.length === undefined) {
+      return;
+    }
+    return value.length !== 2;
+  });
+  const onCvcChange = handleChange((value) => {
+    if (value?.length === undefined) {
+      return;
+    }
+    return value.length !== 3;
+  });
 
   return (
     <div className={classes("form-visa")}>
@@ -51,6 +70,12 @@ function FormVisa(props) {
           error={valiations.cardNumber}
           maxLength="16"
         />
+        {isNaN(Number(formState.cardNumber)) &&
+        formState.cardNumber !== undefined ? (
+          <FormErrorText errorMessage="Wrong Format, Numbers only" />
+        ) : (
+          ""
+        )}
       </div>
       <div className={classes("form-visa__line", "form-visa__date")}>
         <div className={classes("form-visa__date__item")}>
@@ -60,7 +85,9 @@ function FormVisa(props) {
             name="expDate"
             containerStyle={{ width: "6rem" }}
             value={formState["expDate"] || ""}
-            onChange={handleChange}
+            onChange={onExpDateChange}
+            error={valiations.expDate}
+            maxLength={"2"}
           />
         </div>
         <div className={classes("form-visa__date__item")}>
@@ -70,7 +97,9 @@ function FormVisa(props) {
             name="year"
             containerStyle={{ width: "6rem" }}
             value={formState["year"] || ""}
-            onChange={handleChange}
+            onChange={onYearChange}
+            maxLength="2"
+            error={valiations.year}
           />
         </div>
         <div className={classes("form-visa__date__item")}>
@@ -79,7 +108,9 @@ function FormVisa(props) {
             placeholder={"eg 123"}
             name="cvc"
             value={formState["cvc"] || ""}
-            onChange={handleChange}
+            onChange={onCvcChange}
+            maxLength="3"
+            error={valiations.cvc}
           />
         </div>
       </div>

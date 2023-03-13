@@ -1,6 +1,6 @@
 :global {
   .typo {
-    font-family: "Poppins", sans-serif;
+    font-family: var(--font-family);
 
     &--bold {
       font-weight: 500;
