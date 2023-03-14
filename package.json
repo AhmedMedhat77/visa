@@ -1,4 +1,5 @@
 {
+  "homepage": "http://AhmedMedhat77.github.io/visa",
   "name": "visa",
   "version": "0.1.0",
   "private": true,
@@ -19,7 +20,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-    
   },
   "browserslist": {
     "production": [
